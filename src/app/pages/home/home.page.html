@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [scrollEvents]="true">
+  <p>Bienvenido: {{ email }}</p>
+
+  <ion-button expand="full" color="danger" (click)="logout()">
+    Cerrar sesión
+  </ion-button>
+
+  <div *ngFor="let msg of messages">
+    <p><strong>{{ msg.user_email }}:</strong> {{ msg.content }}</p>
+  </div>
+
+  <ion-input
+    [(ngModel)]="newMessage"
+    placeholder="Escribe tu mensaje..."
+    type="text">
+  </ion-input>
+
+  <ion-button expand="full" (click)="sendMessage()">Enviar</ion-button>
+</ion-content>
